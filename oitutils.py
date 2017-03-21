@@ -17,8 +17,11 @@ def getclargs():
     """
     ap = argparse.ArgumentParser()
     ap.add_argument("-v", "--video",
-                    required=True,
+                    required=False,
                     help="path to video file")
+    ap.add_argument("-i", "--image",
+                    required=False,
+                    help="path to image file")
     ap.add_argument("-W", "--width",
                     required=False,
                     help="width of image display in pixel")
@@ -133,7 +136,14 @@ def play_video(args):
     cv2.destroyAllWindows()
 
 
+def readImage():
+    args = getclargs()
+    image = cv2.imread(args["image"])
+    return image
+
+
 def main():
+    img = readImage()
     args = getclargs()
     print(args)
     play_video(args)
