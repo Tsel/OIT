@@ -34,7 +34,7 @@ def makeMask(img, orig, mlp):
     # #
     # erode mask
     mask = mask.astype(np.uint8)
-    kernel = np.ones((5,5), np.uint8)
+    kernel = np.ones((3,3), np.uint8)
     mask = cv2.erode(mask, kernel, iterations=1)
     cv2.imshow("mask", mask)
     cv2.waitKey()

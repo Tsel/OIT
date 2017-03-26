@@ -5,7 +5,7 @@ import argparse
 
 def select_roi(image):
     rects = []
-    r = cv2.selectROI(image, rects, fromCenter=False)
+    r = cv2.selectROI("Selector", image, rects, fromCenter=False)
     #
     # crop image
     imCrop = image[int(r[1]):int(r[1]+r[3]), int(r[0]):int(r[0]+r[2])]
